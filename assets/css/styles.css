@@ -84,6 +84,7 @@ section p {
 }
 
 ul.grid {
+  line-height: 2;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -263,9 +264,8 @@ header nav li:last-child {
 }
 
 .features .grid li {
-  padding: 0 30px;
-  flex-basis: 33%;
-  text-align: center;
+  padding: 10px 30px;
+  flex-basis: 55%;
 }
 
 .features .grid li i {
@@ -281,7 +281,7 @@ header nav li:last-child {
 }
 
 .features .grid li p {
-  margin: 0;
+  margin: 10px;
 }
 
 @media (max-width: 1000px) {
