@@ -199,9 +199,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.43070882"
-     inkscape:cx="551.91501"
-     inkscape:cy="719.24442"
+     inkscape:zoom="0.6171615"
+     inkscape:cx="343.41462"
+     inkscape:cy="549.7781"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -218,7 +218,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -5680,18 +5680,18 @@
            y="549.78778"
            x="155.86783"
            sodipodi:role="line">I am striving to make this game as awesome as modern physics</tspan><tspan
-           id="tspan4652"
+           id="tspan4654"
            y="568.53778"
            x="155.86783"
-           sodipodi:role="line">will allow, and our species has built a hadron collider and launched</tspan><tspan
-           id="tspan4654"
+           sodipodi:role="line">will allow, and our species has built a hadron collider and</tspan><tspan
            y="587.28778"
            x="155.86783"
-           sodipodi:role="line">a red space car. But it all depends on testing, so Deckahedron</tspan><tspan
+           sodipodi:role="line"
+           id="tspan6306">domesticated cats. But any accomplishment depends on testing,</tspan><tspan
            id="tspan4656"
            y="606.03778"
            x="155.86783"
-           sodipodi:role="line">World depends on you.</tspan><tspan
+           sodipodi:role="line">so Deckahedron World depends on you.</tspan><tspan
            id="tspan4628"
            y="624.78778"
            x="155.86783"
@@ -5723,25 +5723,29 @@
            id="tspan4642"
            y="756.03778"
            x="155.86783"
-           sodipodi:role="line">http://deckahedron.com/world/latest</tspan><tspan
-           id="tspan4644"
+           sodipodi:role="line">http://deckahedron.com/world/latest or just email me a mailing</tspan><tspan
            y="774.78778"
+           x="155.86783"
+           sodipodi:role="line"
+           id="tspan6312">address and I'll send you a couple deckahedrons.</tspan><tspan
+           id="tspan4644"
+           y="793.53778"
            x="155.86783"
            sodipodi:role="line" /><tspan
            id="tspan4646"
-           y="793.53778"
+           y="812.28778"
            x="155.86783"
            sodipodi:role="line">Thanks again,</tspan><tspan
            id="tspan4648"
-           y="812.28778"
+           y="831.03778"
            x="155.86783"
            sodipodi:role="line" /><tspan
            id="tspan4650"
-           y="831.03778"
-           x="155.86783"
-           sodipodi:role="line"></tspan><tspan
-           id="tspan26758"
            y="849.78778"
+           x="155.86783"
+           sodipodi:role="line" /><tspan
+           id="tspan26758"
+           y="868.53778"
            x="155.86783"
            sodipodi:role="line">Shandy</tspan></text>
     </g>
@@ -5795,5 +5799,16 @@
            inkscape:connector-curvature="0" />
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.66981554px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="474.58871"
+       y="511.30139"
+       id="text6300"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6302"
+         x="474.58871"
+         y="511.30139">(working title)</tspan></text>
   </g>
 </svg>
