@@ -99,7 +99,6 @@ ul.grid {
 
 .dw-form-intro {
   margin-bottom: 35px;
-  border-bottom: solid red 1px;
 }
 
 /*-------------
@@ -362,16 +361,26 @@ header nav li:last-child {
 }
 
 form {
+/*
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  */
 
   max-width: 800px;
   width: 80%;
 }
 
 form input {
+  padding: 15px;
+  flex: 1;
+  margin-right: 30px;
+  font-size: 18px;
+  color: #555;
+}
+
+form textarea {
   padding: 15px;
   flex: 1;
   margin-right: 30px;
