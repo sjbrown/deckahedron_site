@@ -90,6 +90,12 @@ ul.grid {
   justify-content: center;
 }
 
+
+.dw-form-intro {
+  margin-bottom: 35px;
+  border-bottom: solid red 1px;
+}
+
 /*-------------
    Header
 -------------*/
@@ -125,6 +131,10 @@ header nav li:first-child {
 
 header nav li:last-child {
   margin-right: 0;
+}
+
+.black_header {
+  background-color: black;
 }
 
 @media (max-width: 1000px) {
