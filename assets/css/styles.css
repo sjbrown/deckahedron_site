@@ -67,16 +67,22 @@ section {
   }
 }
 
+.centerr h3 {
+  text-align: center;
+}
+
+.centerr p {
+  text-align: center;
+}
+
 section h3.title {
   color: #414a4f;
   font: bold 32px "Open Sans", sans-serif;
   margin-bottom: 35px;
-  text-align: center;
 }
 
 section p {
   max-width: 800px;
-  text-align: center;
   margin-bottom: 35px;
   padding: 0 20px;
   line-height: 2;
@@ -355,7 +361,7 @@ header nav li:last-child {
   background-color: #f7f7f7;
 }
 
-.contact form {
+form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,7 +371,7 @@ header nav li:last-child {
   width: 80%;
 }
 
-.contact form input {
+form input {
   padding: 15px;
   flex: 1;
   margin-right: 30px;
@@ -373,12 +379,12 @@ header nav li:last-child {
   color: #555;
 }
 
-.contact form .btn {
+form .btn {
   padding: 18px 42px;
 }
 
 @media (max-width: 800px) {
-  .contact form input {
+  form input {
     flex-basis: 100%;
     margin: 0 0 20px 0;
   }
