@@ -458,6 +458,18 @@ footer p a {
   color: #fff;
 }
 
+.flexlinks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flexlinks a {
+  margin: 1em;
+  padding: 1em;
+}
+
 @media (max-width: 700px) {
   footer {
     padding: 80px 15px;
