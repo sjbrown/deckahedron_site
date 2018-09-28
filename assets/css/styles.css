@@ -181,7 +181,7 @@ header nav li:last-child {
 .hero {
   position: relative;
   justify-content: center;
-  min-height: 90vh;
+  min-height: 70vh;
   color: #fff;
   text-align: center;
 }
