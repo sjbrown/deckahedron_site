@@ -1,0 +1,182 @@
+<html>
+<head>
+<script src="https://togetherjs.com/togetherjs-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/utils/Draggable.min.js"></script>
+<style>
+#gamearea {
+  background-color: darkgreen;
+  width: 80%;
+  height: 300px;
+}
+.static {
+  cursor: not-allowed;
+}
+.draggable, .draggable-group {
+  cursor: move;
+}
+
+</style>
+<script>
+function makeDraggable(evt) {
+  // Source:
+  // https://github.com/petercollingridge/code-for-blog/
+  // Tutorial:
+  // http://www.petercollingridge.co.uk/tutorials/svg/interactive/dragging/
+  var svg = evt.target;
+
+  svg.addEventListener('mousedown', startDrag);
+  svg.addEventListener('mousemove', drag);
+  svg.addEventListener('mouseup', endDrag);
+  svg.addEventListener('mouseleave', endDrag);
+  svg.addEventListener('touchstart', startDrag);
+  svg.addEventListener('touchmove', drag);
+  svg.addEventListener('touchend', endDrag);
+  svg.addEventListener('touchleave', endDrag);
+  svg.addEventListener('touchcancel', endDrag);
+
+  function getMousePosition(evt) {
+    var CTM = svg.getScreenCTM();
+    if (evt.touches) { evt = evt.touches[0]; }
+    return {
+      x: (evt.clientX - CTM.e) / CTM.a,
+      y: (evt.clientY - CTM.f) / CTM.d
+    };
+  }
+
+  var selectedElement, offset, transform;
+
+  function initialiseDragging(evt) {
+      offset = getMousePosition(evt);
+
+      // Make sure the first transform on the element is a translate transform
+      var transforms = selectedElement.transform.baseVal;
+
+      if (transforms.length === 0 || transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+        // Create an transform that translates by (0, 0)
+        var translate = svg.createSVGTransform();
+        translate.setTranslate(0, 0);
+        selectedElement.transform.baseVal.insertItemBefore(translate, 0);
+      }
+
+      // Get initial translation
+      transform = transforms.getItem(0);
+      offset.x -= transform.matrix.e;
+      offset.y -= transform.matrix.f;
+  }
+
+  function startDrag(evt) {
+    if (evt.target.classList.contains('draggable')) {
+      selectedElement = evt.target;
+      initialiseDragging(evt);
+    } else if (evt.target.parentNode.classList.contains('draggable-group')) {
+      selectedElement = evt.target.parentNode;
+      initialiseDragging(evt);
+    }
+  }
+
+  function drag(evt) {
+    if (selectedElement) {
+      evt.preventDefault();
+      var coord = getMousePosition(evt);
+      transform.setTranslate(coord.x - offset.x, coord.y - offset.y);
+    }
+  }
+
+  function endDrag(evt) {
+    var loc = elFinder.elementLocation(selectedElement);
+    TogetherJS.send({type: "change", element: loc, data: serializeSvg(selectedElement)});
+
+    selectedElement = false;
+  }
+}
+
+var elFinder;
+
+function serializeSvg(el) {
+  return el.getAttributeNames()
+  .reduce((acc,n) => {
+    acc[n] = el.getAttribute(n);
+    return acc
+  }, {});
+}
+
+TogetherJS.on('ready', () => {
+  elFinder = TogetherJS.require("elementFinder");
+});
+
+TogetherJS.hub.on("test_msg", (msg) => {
+  var element = elFinder.findElement(msg.element);
+  console.log('found', element);
+
+  var c = document.getElementById('circle1');
+  c.setAttribute('cy', parseInt(c.getAttribute('cy')) + 2);
+});
+
+TogetherJS.hub.on("change", (msg) => {
+  console.log('msg', msg);
+
+  var x = document.getElementById(msg.data.id);
+  Object.keys(msg.data).map(key => {
+    x.setAttribute(key, msg.data[key]);
+  });
+});
+
+TogetherJS.hub.on("create", (msg) => {
+  console.log('msg', msg);
+  var svg = document.getElementsByTagName('svg')[0];
+  var newElement = make_die(msg.id);
+  svg.appendChild(newElement);
+});
+
+function make_die(id) {
+  var die = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+  die.setAttribute('id', id);
+  die.setAttribute('x', 150);
+  die.setAttribute('y', 10);
+  die.setAttribute('rx', 20);
+  die.setAttribute('ry', 20);
+  die.setAttribute('width', 100);
+  die.setAttribute('height', 100);
+  die.setAttribute('class', 'draggable');
+  die.style = 'fill:red;stroke:black;stroke-width:5;opacity:0.5';
+  return die;
+}
+
+function add_die(e, target) {
+  console.log('here', e, target)
+  var loc = elFinder.elementLocation(e);
+  TogetherJS.send({type: "test_msg", foo: 'bar', element: loc});
+
+  var svg = document.getElementsByTagName('svg')[0];
+  var newElement = make_die('die1');
+  console.log('D', newElement)
+  svg.appendChild(newElement);
+  TogetherJS.send({type: "create", id: 'die1', data: serializeSvg(newElement)});
+
+  var c = document.getElementById('circle1');
+  c.setAttribute('cx', parseInt(c.getAttribute('cx')) + 2);
+
+  var t = document.getElementById('text1');
+  t.value = t.value + 'x';
+
+}
+</script>
+</head>
+<body>
+<button onclick="TogetherJS(this); return false;">Start TogetherJS</button>
+  <button onclick="add_die(this)">
+  Add die
+  </button>
+
+  <input id="text1" type="text" />
+
+  <div id="gamearea">
+  <svg width="100%" height="300" onload="makeDraggable(evt)">
+    <circle id="circle1"
+      cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+  </svg>
+  </div>
+
+</body>
+</html>
+
