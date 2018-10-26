@@ -16,6 +16,7 @@
 }
 
 </style>
+
 <script>
 function makeDraggable(evt) {
   // Source:
@@ -83,10 +84,15 @@ function makeDraggable(evt) {
   }
 
   function endDrag(evt) {
-    var loc = elFinder.elementLocation(selectedElement);
-    TogetherJS.send({type: "change", element: loc, data: serializeSvg(selectedElement)});
-
-    selectedElement = false;
+    try {
+      /*
+      var loc = elFinder.elementLocation(selectedElement);
+      */
+      TogetherJS.send({type: "change", data: serializeSvg(selectedElement)});
+    }
+    finally {
+      selectedElement = false;
+    }
   }
 }
 
@@ -104,6 +110,7 @@ TogetherJS.on('ready', () => {
   elFinder = TogetherJS.require("elementFinder");
 });
 
+/*
 TogetherJS.hub.on("test_msg", (msg) => {
   var element = elFinder.findElement(msg.element);
   console.log('found', element);
@@ -111,6 +118,7 @@ TogetherJS.hub.on("test_msg", (msg) => {
   var c = document.getElementById('circle1');
   c.setAttribute('cy', parseInt(c.getAttribute('cy')) + 2);
 });
+*/
 
 TogetherJS.hub.on("change", (msg) => {
   console.log('msg', msg);
@@ -124,13 +132,13 @@ TogetherJS.hub.on("change", (msg) => {
 TogetherJS.hub.on("create", (msg) => {
   console.log('msg', msg);
   var svg = document.getElementsByTagName('svg')[0];
-  var newElement = make_die(msg.id);
+  var newElement = make_die(msg.data.id);
   svg.appendChild(newElement);
 });
 
 function make_die(id) {
   var die = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
-  die.setAttribute('id', id);
+  die.setAttribute('id', id || 'die' + Date.now());
   die.setAttribute('x', 150);
   die.setAttribute('y', 10);
   die.setAttribute('rx', 20);
@@ -143,21 +151,27 @@ function make_die(id) {
 }
 
 function add_die(e, target) {
+/*
   console.log('here', e, target)
   var loc = elFinder.elementLocation(e);
   TogetherJS.send({type: "test_msg", foo: 'bar', element: loc});
+  */
 
   var svg = document.getElementsByTagName('svg')[0];
-  var newElement = make_die('die1');
+  var newElement = make_die();
   console.log('D', newElement)
   svg.appendChild(newElement);
-  TogetherJS.send({type: "create", id: 'die1', data: serializeSvg(newElement)});
+  TogetherJS.send({type: "create", data: serializeSvg(newElement)});
 
+/*
   var c = document.getElementById('circle1');
   c.setAttribute('cx', parseInt(c.getAttribute('cx')) + 2);
+  */
 
+/*
   var t = document.getElementById('text1');
   t.value = t.value + 'x';
+  */
 
 }
 </script>
