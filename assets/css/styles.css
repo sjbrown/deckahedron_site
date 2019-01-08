@@ -476,6 +476,18 @@ footer p a {
   }
 }
 
+.calltoaction {
+  border: solid thin #0044ff;
+  border-radius: 8px;
+  background-color: black;
+  margin-bottom: 35px;
+  padding: 1em;
+}
+
+.calltoaction h4 {
+  color: white;
+}
+
 /* -- Demo ads -- */
 
 @media (max-width: 1200px) {
