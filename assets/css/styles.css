@@ -55,9 +55,16 @@ section {
   padding: 20px 100px;
 }
 
+.big_padding section {
+  padding: 125px 100px;
+}
+
 @media (max-width: 1000px) {
   section {
     padding: 100px 50px;
+  }
+  .big_padding section {
+    padding: 25px 25px;
   }
 }
 
@@ -67,9 +74,6 @@ section {
   }
 }
 
-.big_padding section {
-  padding: 125px 100px;
-}
 
 .centerr h3 {
   text-align: center;
@@ -111,6 +115,9 @@ ul.grid {
 
 .dw-form {
   background-color: #ccc;
+}
+
+@media (max-width: 800px) {
 }
 
 /*-------------
@@ -235,11 +242,12 @@ header nav li:last-child {
 
 @media (max-width: 800px) {
   .hero {
-    min-height: 600px;
+    min-height: 200px;
   }
 
   .hero h1 {
     font-size: 48px;
+    margin-bottom: 0;
   }
 
   .hero h3 {
