@@ -15,6 +15,7 @@ cp -a playtest_files build/playtest_files
 cp -a *.html build/
 
 bin/install_deps.sh
+apt-get install inkscape
 
 cd build
 export DEBUG=0
