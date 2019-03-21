@@ -25,6 +25,7 @@ BUILDDIR=$PWD
 if [ -e 1kfa/.git ]
 then
   cd 1kfa
+  git status
   git fetch origin
   git rebase origin/master
   cd $BUILDDIR

@@ -18,6 +18,7 @@ echo ""
 if [ -e togetherness/.git ]
 then
   cd togetherness
+  git status
   git fetch origin master
   git rebase origin/master
   cd ..

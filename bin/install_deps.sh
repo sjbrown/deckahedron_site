@@ -2,7 +2,8 @@
 
 
 set -e
+set -x
 
-apt-get install -y texlive-extra-utils
-apt-get install -y inkscape
+sudo apt-get install -y texlive-extra-utils
+sudo apt-get install -y inkscape
 
