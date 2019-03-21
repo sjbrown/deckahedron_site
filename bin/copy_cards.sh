@@ -8,8 +8,6 @@ if [ `basename $(pwd)` != "build" ]; then
   exit 1
 fi
 
-BUILDDIR=$PWD
-
 echo "-----------------------------------------------------"
 echo ""
 echo " Copying 1kfa repo"
@@ -17,9 +15,26 @@ echo ""
 echo "-----------------------------------------------------"
 echo ""
 
-rm -rf 1kfa
-git clone https://github.com/sjbrown/1kfa.git
+set -x
+
+#sudo apt-get install libreoffice-java-common
+
+BUILDDIR=$PWD
+
+
+if [ -e 1kfa/.git ]
+then
+  cd 1kfa
+  git fetch origin
+  git rebase origin/master
+  cd $BUILDDIR
+else
+  rm -rf 1kfa
+  git clone https://github.com/sjbrown/1kfa.git
+fi
+
 source 1kfa/resolution_cards/version.py
+export KFAREPO=$BUILDDIR/1kfa
 
 echo " Copying 1kFA v$VERSION "
 
@@ -36,7 +51,7 @@ cd $BUILDDIR
 
 cp /tmp/1kfa_playtest/*.pdf playtest_files/
 cp /tmp/1kfa_playtest/*.html playtest_files/
-cp /tmp/1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
+mv /tmp/1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
 
 echo "Finished!"
 echo "---------"

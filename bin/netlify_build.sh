@@ -14,6 +14,8 @@ cp -a gm_playtest build/gm_playtest
 cp -a playtest_files build/playtest_files
 cp -a *.html build/
 
+bin/install_deps.sh
+
 cd build
 copy_table.sh
 copy_cards.sh

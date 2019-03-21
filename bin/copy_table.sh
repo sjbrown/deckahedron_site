@@ -15,9 +15,17 @@ echo ""
 echo "-----------------------------------------------------"
 echo ""
 
+if [ -e togetherness/.git ]
+then
+  cd togetherness
+  git fetch origin master
+  git rebase origin/master
+  cd ..
+else
+  rm -rf togetherness
+  git clone https://github.com/sjbrown/togetherness.git
+fi
 
-rm -rf togetherness
-git clone https://github.com/sjbrown/togetherness.git
 rm -rf table
 mv togetherness/src table
 
