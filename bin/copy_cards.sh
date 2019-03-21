@@ -51,8 +51,8 @@ find . |grep png |sort |awk '{ print "<a href=\"" $1 "\">" $1 "</a><br />" }' > 
 cd $BUILDDIR
 
 ls /tmp/1kfa_playtest
-cp /tmp/1kfa_playtest/*.pdf playtest_files/
 cp /tmp/1kfa_playtest/*.html playtest_files/
+cp /tmp/1kfa_playtest/*.pdf playtest_files/
 mv /tmp/1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
 
 echo "Finished!"

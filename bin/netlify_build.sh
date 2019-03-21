@@ -7,6 +7,10 @@ echo "my pwd is $PWD"
 echo "my home is $HOME"
 export PATH=$PATH:$PWD/bin
 
+if [ $FORCE_REBUILD -eq 1 ]
+then
+  rm -rf build
+fi
 mkdir -p build
 cp -a assets build/assets
 cp -a examples build/examples
