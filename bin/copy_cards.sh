@@ -39,21 +39,31 @@ export KFAREPO=$BUILDDIR/1kfa
 
 echo " Copying 1kFA v$VERSION "
 
-cd 1kfa
-python bin/build_all.py
-cd $BUILDDIR
+if [ -e 1kfa/dist/v$VERSION ]
+then
+  echo "Dist $VERSION exsits!  Just copying..."
+  cp 1kfa/dist/v$VERSION/*.html playtest_files/
+  cp 1kfa/dist/v$VERSION/*.pdf playtest_files/
+  cp 1kfa/dist/v$VERSION/*.tar.gz playtest_files/
+else
+  echo "Dist $VERSION does not exsit!  Building..."
+  cd 1kfa
+  python bin/build_all.py
+  cd $BUILDDIR
 
-rm -rf "assets/cards_v$VERSION"
-cp -a "/tmp/cards_v$VERSION" assets/
-cd "assets/cards_v$VERSION"
-find . |grep svg |xargs rm
-find . |grep png |sort |awk '{ print "<a href=\"" $1 "\">" $1 "</a><br />" }' > index.html
-cd $BUILDDIR
+  rm -rf "assets/cards_v$VERSION"
+  cp -a "/tmp/cards_v$VERSION" assets/
+  cd "assets/cards_v$VERSION"
+  find . |grep svg |xargs rm
+  find . |grep png |sort |awk '{ print "<a href=\"" $1 "\">" $1 "</a><br />" }' > index.html
+  cd $BUILDDIR
 
-ls /tmp/1kfa_playtest
-cp /tmp/1kfa_playtest/*.html playtest_files/
-cp /tmp/1kfa_playtest/*.pdf playtest_files/
-mv /tmp/1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
+  ls /tmp/1kfa_playtest
+  cp /tmp/1kfa_playtest/*.html playtest_files/
+  cp /tmp/1kfa_playtest/*.pdf playtest_files/
+  mv /tmp/1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
+fi
+
 
 echo "Finished!"
 echo "---------"
