@@ -15,7 +15,8 @@ cp -a playtest_files build/playtest_files
 cp -a *.html build/
 
 bin/install_deps.sh
-apt-get install inkscape
+
+docker run -it --rm ubuntu "echo hello"
 
 cd build
 export DEBUG=0
