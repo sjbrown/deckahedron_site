@@ -17,6 +17,7 @@ cp -a *.html build/
 bin/install_deps.sh
 
 cd build
+export DEBUG=0
 copy_table.sh
 copy_cards.sh
 
