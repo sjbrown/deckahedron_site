@@ -27,5 +27,12 @@ export DEBUG=0
 copy_table.sh
 copy_cards.sh
 
+# Scrape git to populate the LATEST_UPDATE section on the home page
+cd 1kfa
+UPDATE=`git log |grep '\[UPDATE\]' | awk '{$1=""; print $0}'`
+cd ..
+sed -i "s/LATEST_UPDATE/$UPDATE/g" index.html
+
+
 echo "Finished! 1kFA Netlify Build Script"
 echo "----"
