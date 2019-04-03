@@ -34,7 +34,7 @@ else
   git clone https://github.com/sjbrown/1kfa.git
 fi
 
-source 1kfa/resolution_cards/version.py
+source 1kfa/resolution_cards/version.py # Get the VERSION variable
 export KFAREPO=$BUILDDIR/1kfa
 
 echo " Copying 1kFA v$VERSION "
