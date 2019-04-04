@@ -21,10 +21,10 @@ cp -a gm_playtest $BUILDDIR/gm_playtest
 cp -a playtest_files $BUILDDIR/playtest_files
 cp -a *.html $BUILDDIR/
 
-cd $BUILDIDR
 export DEBUG=0
+cd $BUILDIDR
 copy_table.sh
-copy_cards.sh
+copy_cards.sh $REPODIR
 
 source $BUILDDIR/1kfa/resolution_cards/version.py #Get the VERSION variable
 cp $REPODIR/dist/$VERSION/*tar.gz $BUILDDIR/playtest_files/
