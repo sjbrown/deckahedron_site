@@ -24,7 +24,7 @@ cp -a gm_playtest $BUILDDIR/gm_playtest
 cp -a playtest_files $BUILDDIR/playtest_files
 cp -a *.html $BUILDDIR/
 
-cd $BUILDDIDR
+cd $BUILDDIR
 copy_cards.sh $REPODIR
 copy_table.sh
 
