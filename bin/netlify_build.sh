@@ -1,5 +1,9 @@
 #! /bin/bash
 
+if [ $DEBUG ]; then
+  set -x
+fi
+
 echo "----"
 echo "Beginning 1kFA Netlify Build Script"
 
@@ -10,8 +14,7 @@ export PATH=$PATH:$PWD/bin
 REPODIR=$PWD
 BUILDDIR=$PWD/build
 
-if [ $FORCE_REBUILD -eq 1 ]
-then
+if [ $FORCE_REBUILD -eq 1 ]; then
   rm -rf $BUILDDIR
 fi
 mkdir -p $BUILDDIR
@@ -21,10 +24,9 @@ cp -a gm_playtest $BUILDDIR/gm_playtest
 cp -a playtest_files $BUILDDIR/playtest_files
 cp -a *.html $BUILDDIR/
 
-export DEBUG=0
 cd $BUILDIDR
-copy_table.sh
 copy_cards.sh $REPODIR
+copy_table.sh
 
 source $BUILDDIR/1kfa/resolution_cards/version.py #Get the VERSION variable
 cp $REPODIR/dist/$VERSION/*tar.gz $BUILDDIR/playtest_files/
