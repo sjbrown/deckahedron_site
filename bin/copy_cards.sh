@@ -54,7 +54,9 @@ cp 1kfa_playtest/*.* playtest_files/
 cp 1kfa_playtest.tar.gz playtest_files/
 
 rm -rf "assets/cards_v$VERSION"
-cp -a $REPODIR/dist/cards_v$VERSION ./assets/
+cp $REPODIR/dist/$VERSION/cards_v$VERSION.tar.gz ./
+tar -xvzf cards_v$VERSION.tar.gz
+cp -a cards_v$VERSION ./assets/cards_v$VERSION
 cd "assets/cards_v$VERSION"
 find . |grep png |sort |awk '{ print "<a href=\"" $1 "\">" $1 "</a><br />" }' > index.html
 
