@@ -34,7 +34,8 @@ cp $REPODIR/dist/$VERSION/*tar.gz $BUILDDIR/playtest_files/
 # Scrape git to populate the LATEST_UPDATE section on the home page
 cd $BUILDDIR/1kfa
 UPDATE=`git log |grep '\[UPDATE\]' | awk '{$1=""; print $0}'`
-cd ..
+echo "Last update: $UPDATE"
+cd $BUILDDIR
 sed -i "s/LATEST_UPDATE/$UPDATE/g" index.html
 
 
