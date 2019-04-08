@@ -33,7 +33,8 @@ cp $REPODIR/dist/$VERSION/*tar.gz $BUILDDIR/playtest_files/
 
 # Scrape git to populate the LATEST_UPDATE section on the home page
 cd $BUILDDIR/1kfa
-UPDATE=`git log |grep '\[UPDATE\]' | awk '{$1=""; print $0}'`
+UPDATE=`git log |grep '\[UPDATE\]' | head -1 - | awk '{$1=""; print $0}'`
+
 UPDATE_SPACE_TRIMMED="$(sed -e 's/[[:space:]]*$//' <<<${UPDATE})"
 echo "Last update: $UPDATE_SPACE_TRIMMED"
 cd $BUILDDIR
