@@ -13,4 +13,10 @@ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch dist/
 cp ~/tmp/<filename> dist/<version>/<filename>
 git add dist/<version>/<filename>
 git commit -m "Pruned all old versions of a dist file"
+
+git push origin --force --all
+
+git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now
 ```
