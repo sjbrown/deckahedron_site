@@ -141,11 +141,7 @@ header {
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  padding: 35px 100px 0;
-}
-
-header h2 {
-  font-family: "Quicksand", sans-serif;
+  padding: 20px 100px 20px;
 }
 
 header nav {
