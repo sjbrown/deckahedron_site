@@ -30,6 +30,18 @@ fi
 rm -rf table
 mv togetherness/src table
 
+sed -i '/<\/head>/i<!-- Global site tag (gtag.js) - Google Analytics -->' table/index.html
+sed -i '/<\/head>/i  <script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-122680475-1"><\/script>' table/index.html
+sed -i '/<\/head>/i  <script>' table/index.html
+sed -i '/<\/head>/i  window.dataLayer = window.dataLayer || [];' table/index.html
+sed -i '/<\/head>/i  function gtag(){dataLayer.push(arguments)}' table/index.html
+sed -i '/<\/head>/i  gtag("js", new Date());' table/index.html
+sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' table/index.html
+sed -i '/<\/head>/i  <\/script>' table/index.html
+sed -i '/<\/head>/i<!-- End Google Analytics -->' table/index.html
+
+
+
 echo "Finished!"
 echo "---------"
 
