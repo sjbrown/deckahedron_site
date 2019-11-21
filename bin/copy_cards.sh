@@ -50,7 +50,7 @@ echo " Copying 1kFA version $VERSION"
 
 cp $REPODIR/dist/$VERSION/1kfa_playtest.tar.gz ./
 tar -xvzf 1kfa_playtest.tar.gz
-cp 1kfa_playtest/guide_*.* playtest_files/
+cp 1kfa_playtest/1kfa_guide_*.* playtest_files/
 cp 1kfa_playtest.tar.gz playtest_files/1kfa_playtest.tgz
 
 rm -rf "assets/cards_v$VERSION"
