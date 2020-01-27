@@ -58,11 +58,35 @@ cp $REPODIR/dist/$VERSION/cards_v$VERSION.tar.gz ./
 tar -xvzf cards_v$VERSION.tar.gz
 cp -a cards_v$VERSION ./assets/cards_v$VERSION
 cd "assets/cards_v$VERSION"
+
+mkdir booklet
+echo '<html><head><style>' > booklet/index.html
+echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> booklet/index.html
+echo 'img { max-width: 128px; }' >> booklet/index.html
+echo '</style></head><body>' >> booklet/index.html
+find . |grep booklet |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> booklet/index.html
+
+mkdir items
+echo '<html><head><style>' > items/index.html
+echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> items/index.html
+echo 'img { max-width: 128px; }' >> items/index.html
+echo '</style></head><body>' >> items/index.html
+find . |grep mundane_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> items/index.html
+find . |grep magic_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> items/index.html
+
+mkdir moves
+echo '<html><head><style>' > moves/index.html
+echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> moves/index.html
+echo 'img { max-width: 128px; }' >> moves/index.html
+echo '</style></head><body>' >> moves/index.html
+find . |grep starter |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> moves/index.html
+find . |grep move_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> moves/index.html
+
 echo '<html><head><style>' > index.html
-echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> index.html
-echo 'img { max-width: 128px; }' >> index.html
 echo '</style></head><body>' >> index.html
-find . |grep png |sort |awk '{ print "<a href=\"" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> index.html
+echo '<h1><a href="booklet">Booklet pages</a></h1>' >> index.html
+echo '<h1><a href="items">Item cards</a></h1>' >> index.html
+echo '<h1><a href="moves">Move cards</a></h1>' >> index.html
 
 cd $BUILDDIR
 
