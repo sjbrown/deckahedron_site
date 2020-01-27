@@ -62,7 +62,7 @@ echo '<html><head><style>' > index.html
 echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> index.html
 echo 'img { max-width: 128px; }' >> index.html
 echo '</style></head><body>' >> index.html
-find . |grep png |sort |awk '{ print "<a href=\"" $1 "\"><img width=50 src=\"" $1 "\"></a>" }' >> index.html
+find . |grep png |sort |awk '{ print "<a href=\"" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> index.html
 
 cd $BUILDDIR
 
