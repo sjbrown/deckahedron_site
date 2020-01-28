@@ -71,23 +71,23 @@ echo '<html><head><style>' > booklet/index.html
 echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> booklet/index.html
 echo 'img { max-width: 128px; }' >> booklet/index.html
 echo '</style></head><body>' >> booklet/index.html
-find . |grep booklet |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> booklet/index.html
+find . |grep booklet |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"../" $1 "\"> " $1 "</a>" }' >> booklet/index.html
 
 mkdir -p items
 echo '<html><head><style>' > items/index.html
 echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> items/index.html
 echo 'img { max-width: 128px; }' >> items/index.html
 echo '</style></head><body>' >> items/index.html
-find . |grep mundane_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> items/index.html
-find . |grep magic_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> items/index.html
+find . |grep mundane_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"../" $1 "\"> " $1 "</a>" }' >> items/index.html
+find . |grep magic_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"../" $1 "\"> " $1 "</a>" }' >> items/index.html
 
 mkdir -p moves
 echo '<html><head><style>' > moves/index.html
 echo 'a { margin: 20px; display: inline-block; max-width: 128px; overflow-wrap: break-word; }' >> moves/index.html
 echo 'img { max-width: 128px; }' >> moves/index.html
 echo '</style></head><body>' >> moves/index.html
-find . |grep starter |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> moves/index.html
-find . |grep move_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"" $1 "\"> " $1 "</a>" }' >> moves/index.html
+find . |grep starter |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"../" $1 "\"> " $1 "</a>" }' >> moves/index.html
+find . |grep move_deck |grep png |sort |awk '{ print "<a href=\"../" $1 "\"><img src=\"../" $1 "\"> " $1 "</a>" }' >> moves/index.html
 
 cd $BUILDDIR
 
