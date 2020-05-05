@@ -17,6 +17,7 @@
 
 html {
   font: normal 16px sans-serif;
+  text-rendering: optimizeLegibility;
   color: #555;
 }
 

@@ -18,8 +18,12 @@ Inside Out, but they all share the common Hero's Journey structure.
 
 To communicate that this game provides a consistent story structure, but
 the details are dependent on the players' imaginations, I am commissioning
-multiple artists to create their own version of a cover for the game. The
-covers will all have things in common, but will exhibit a wide variety of
+multiple artists to create their own take on a consistent compositional
+structure.
+
+Multiple covers, same story.
+
+The art will all have things in common, but will exhibit a wide variety of
 styles and tones. That way, players will see how it is possible to create
 a wide variety of characters and story while working inside rigid
 structural constraints.
