@@ -48,10 +48,15 @@
             #intro_table {
               margin-top: 3em;
             }
+            @media (max-width: 800px) {
+              #intro_table #prompts {
+                display: none;
+              }
+            }
             </style>
             <table id="intro_table">
             <tr>
-            <td>
+            <td id="prompts">
             <h3 class="title">Noticing the Dungeons &amp; Dragons Trend?</h3>
             <h3 class="title">Want To Try Improv?</h3>
             </td>
@@ -191,7 +196,20 @@
 
       <section class="reviews">
             <h3 class="title">About the creator</h3>
+            <style>
+            #vid {
+              width: 800px;
+              height: 600px;
+            }
+            @media (max-width: 800px) {
+              #vid {
+                width: 400px;
+                height: 300px;
+              }
+            }
+            </style>
             <object
+              id="vid"
               data="https://www.youtube.com/embed/jhUcS00YTTQ"
               width="800"
               height="600">
