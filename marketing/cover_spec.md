@@ -18,12 +18,8 @@ Inside Out, but they all share the common Hero's Journey structure.
 
 To communicate that this game provides a consistent story structure, but
 the details are dependent on the players' imaginations, I am commissioning
-multiple artists to create their own take on a consistent compositional
-structure.
-
-Multiple covers, same story.
-
-The art will all have things in common, but will exhibit a wide variety of
+multiple artists to create their own version of a cover for the game. The
+covers will all have things in common, but will exhibit a wide variety of
 styles and tones. That way, players will see how it is possible to create
 a wide variety of characters and story while working inside rigid
 structural constraints.
@@ -97,12 +93,20 @@ death imagery is used for the shadow, or things that are ancient, unmoving and
 unchanging.
 
 
-## Diversity
+## Other notes
 
-Representing a diverse audience is important to me. Your artistic instincts
-are most important, but if you are inclined, please see if you can balance
-the genders of the characters and represent characters of backgrounds that
-are not typically represented.
+The game implies a "fantasy" setting, with swords and magic.  This can be
+flexibly interpreted to be in many different times or different planets, even
+post-apocalyptic. It can even avoid specificity and instead be abstract and
+symbolic. But avoid representing a "contemporary" scene with guns and
+helicopters.
+
+The characters do not have to be human.
+
+Diversity. Representing a diverse audience is important to me. Your artistic
+instincts are most important, but if you are inclined, please see if you can
+balance the genders of the characters and represent characters of backgrounds
+that are not typically represented.
 
 ## Mood board
 
