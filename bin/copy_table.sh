@@ -39,20 +39,9 @@ sed -i '/<\/head>/i  gtag("js", new Date());' table/index.html
 sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' table/index.html
 sed -i '/<\/head>/i  <\/script>' table/index.html
 sed -i '/<\/head>/i<!-- End Google Analytics -->' table/index.html
-sed -i '/<\/head>/i<!-- Matomo -->' table/index.html
-sed -i '/<\/head>/i<script type="text/javascript">' table/index.html
-sed -i '/<\/head>/i  var _paq = window._paq || [];' table/index.html
-sed -i '/<\/head>/i  _paq.push(["trackPageView"]);' table/index.html
-sed -i '/<\/head>/i  _paq.push(["enableLinkTracking"]);' table/index.html
-sed -i '/<\/head>/i  (function() {' table/index.html
-sed -i '/<\/head>/i    var u="https://kfa.matomo.cloud/";' table/index.html
-sed -i '/<\/head>/i    _paq.push(["setTrackerUrl", u+"matomo.php"]);' table/index.html
-sed -i '/<\/head>/i    _paq.push(["setSiteId", "1"]);' table/index.html
-sed -i '/<\/head>/i    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];' table/index.html
-sed -i '/<\/head>/i    g.type="text/javascript"; g.async=true; g.defer=true; g.src="//cdn.matomo.cloud/kfa.matomo.cloud/matomo.js"; s.parentNode.insertBefore(g,s);' table/index.html
-sed -i '/<\/head>/i  })();' table/index.html
-sed -i '/<\/head>/i</script>' table/index.html
-sed -i '/<\/head>/i<!-- End Matomo Code -->' table/index.html
+sed -i '/<\/head>/i<!-- Plausible -->' table/index.html
+sed -i '/<\/head>/i<script async defer data-domain="1kfa.com" src="https:\/\/plausible.io\/js\/plausible.js"><\/script>' table/index.html
+sed -i '/<\/head>/i<!-- End Plausible -->' table/index.html
 
 
 
