@@ -8,7 +8,7 @@ if [ `basename $(pwd)` != "build" ]; then
   exit 1
 fi
 
-DESTDIR=table_beta
+DESTDIR=table
 echo "-----------------------------------------------------"
 echo ""
 echo " Copying togetherness to ./$DESTDIR"
@@ -21,6 +21,7 @@ then
   cd togetherness
   git status
   git fetch origin master
+  git fetch origin beta
   git rebase origin/master
   cd ..
 else
@@ -29,7 +30,7 @@ else
 fi
 
 rm -rf $DESTDIR
-mv togetherness/src $DESTDIR
+cp -a togetherness/src $DESTDIR
 
 sed -i '/<\/head>/i<!-- Global site tag (gtag.js) - Google Analytics -->' $DESTDIR/index.html
 sed -i '/<\/head>/i  <script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-122680475-1"><\/script>' $DESTDIR/index.html
@@ -44,6 +45,14 @@ sed -i '/<\/head>/i<!-- Plausible -->' $DESTDIR/index.html
 sed -i '/<\/head>/i<script async defer data-domain="1kfa.com" src="https:\/\/plausible.io\/js\/plausible.js"><\/script>' $DESTDIR/index.html
 sed -i '/<\/head>/i<!-- End Plausible -->' $DESTDIR/index.html
 
+
+cd togetherness
+git checkout beta
+cd ..
+
+DESTDIR=table_beta
+rm -rf $DESTDIR
+cp -a togetherness/src $DESTDIR
 
 
 echo "Finished!"
