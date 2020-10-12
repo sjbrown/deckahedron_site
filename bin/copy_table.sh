@@ -8,9 +8,10 @@ if [ `basename $(pwd)` != "build" ]; then
   exit 1
 fi
 
+DESTDIR=table_beta
 echo "-----------------------------------------------------"
 echo ""
-echo " Copying togetherness to ./table"
+echo " Copying togetherness to ./$DESTDIR"
 echo ""
 echo "-----------------------------------------------------"
 echo ""
@@ -27,21 +28,21 @@ else
   git clone https://github.com/sjbrown/togetherness.git
 fi
 
-rm -rf table
-mv togetherness/src table
+rm -rf $DESTDIR
+mv togetherness/src $DESTDIR
 
-sed -i '/<\/head>/i<!-- Global site tag (gtag.js) - Google Analytics -->' table/index.html
-sed -i '/<\/head>/i  <script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-122680475-1"><\/script>' table/index.html
-sed -i '/<\/head>/i  <script>' table/index.html
-sed -i '/<\/head>/i  window.dataLayer = window.dataLayer || [];' table/index.html
-sed -i '/<\/head>/i  function gtag(){dataLayer.push(arguments)}' table/index.html
-sed -i '/<\/head>/i  gtag("js", new Date());' table/index.html
-sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' table/index.html
-sed -i '/<\/head>/i  <\/script>' table/index.html
-sed -i '/<\/head>/i<!-- End Google Analytics -->' table/index.html
-sed -i '/<\/head>/i<!-- Plausible -->' table/index.html
-sed -i '/<\/head>/i<script async defer data-domain="1kfa.com" src="https:\/\/plausible.io\/js\/plausible.js"><\/script>' table/index.html
-sed -i '/<\/head>/i<!-- End Plausible -->' table/index.html
+sed -i '/<\/head>/i<!-- Global site tag (gtag.js) - Google Analytics -->' $DESTDIR/index.html
+sed -i '/<\/head>/i  <script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-122680475-1"><\/script>' $DESTDIR/index.html
+sed -i '/<\/head>/i  <script>' $DESTDIR/index.html
+sed -i '/<\/head>/i  window.dataLayer = window.dataLayer || [];' $DESTDIR/index.html
+sed -i '/<\/head>/i  function gtag(){dataLayer.push(arguments)}' $DESTDIR/index.html
+sed -i '/<\/head>/i  gtag("js", new Date());' $DESTDIR/index.html
+sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' $DESTDIR/index.html
+sed -i '/<\/head>/i  <\/script>' $DESTDIR/index.html
+sed -i '/<\/head>/i<!-- End Google Analytics -->' $DESTDIR/index.html
+sed -i '/<\/head>/i<!-- Plausible -->' $DESTDIR/index.html
+sed -i '/<\/head>/i<script async defer data-domain="1kfa.com" src="https:\/\/plausible.io\/js\/plausible.js"><\/script>' $DESTDIR/index.html
+sed -i '/<\/head>/i<!-- End Plausible -->' $DESTDIR/index.html
 
 
 
