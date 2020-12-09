@@ -32,21 +32,26 @@ fi
 rm -rf $DESTDIR
 cp -a togetherness/src $DESTDIR
 
-sed -i '/<\/head>/i<!-- Global site tag (gtag.js) - Google Analytics -->' $DESTDIR/index.html
-sed -i '/<\/head>/i  <script async src="https:\/\/www.googletagmanager.com\/gtag\/js?id=UA-122680475-1"><\/script>' $DESTDIR/index.html
-sed -i '/<\/head>/i  <script>' $DESTDIR/index.html
-sed -i '/<\/head>/i  window.dataLayer = window.dataLayer || [];' $DESTDIR/index.html
-sed -i '/<\/head>/i  function gtag(){dataLayer.push(arguments)}' $DESTDIR/index.html
-sed -i '/<\/head>/i  gtag("js", new Date());' $DESTDIR/index.html
-sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' $DESTDIR/index.html
-sed -i '/<\/head>/i  <\/script>' $DESTDIR/index.html
-sed -i '/<\/head>/i<!-- End Google Analytics -->' $DESTDIR/index.html
-sed -i '/<\/head>/i<!-- Cloudflare -->' $DESTDIR/index.html
-sed -i '/<\/head>/i  <script defer' $DESTDIR/index.html
-sed -i '/<\/head>/i  src="https://static.cloudflareinsights.com/beacon.min.js"' $DESTDIR/index.html
-sed -i '/<\/head>/i  data-cf-beacon=\'{"token": "ad4bc0439a524824ac7ccf972f3a286b"}\'' $DESTDIR/index.html
-sed -i '/<\/head>/i  ></script>' $DESTDIR/index.html
-sed -i '/<\/head>/i<!-- End Cloudflare -->' $DESTDIR/index.html
+cat <<EOF > /tmp/analytics.txt
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122680475-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag("js", new Date());
+  gtag("config", "UA-122680475-1");
+</script>
+<!-- End Google Analytics -->
+<!-- Cloudflare -->
+  <script defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "ad4bc0439a524824ac7ccf972f3a286b"}'
+  ></script>
+<!-- End Cloudflare -->
+EOF
+
+# Insert the analytics code into the index.html file right before </head>
+ied  -e '/<\/head>/r /tmp/analytics.txt' -e 'x;$G' $DESTDIR/index.html
 
 
 cd togetherness
