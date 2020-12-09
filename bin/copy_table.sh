@@ -41,9 +41,12 @@ sed -i '/<\/head>/i  gtag("js", new Date());' $DESTDIR/index.html
 sed -i '/<\/head>/i  gtag("config", "UA-122680475-1");' $DESTDIR/index.html
 sed -i '/<\/head>/i  <\/script>' $DESTDIR/index.html
 sed -i '/<\/head>/i<!-- End Google Analytics -->' $DESTDIR/index.html
-sed -i '/<\/head>/i<!-- Plausible -->' $DESTDIR/index.html
-sed -i '/<\/head>/i<script async defer data-domain="1kfa.com" src="https:\/\/plausible.io\/js\/plausible.js"><\/script>' $DESTDIR/index.html
-sed -i '/<\/head>/i<!-- End Plausible -->' $DESTDIR/index.html
+sed -i '/<\/head>/i<!-- Cloudflare -->' $DESTDIR/index.html
+sed -i '/<\/head>/i  <script defer' $DESTDIR/index.html
+sed -i '/<\/head>/i  src="https://static.cloudflareinsights.com/beacon.min.js"' $DESTDIR/index.html
+sed -i '/<\/head>/i  data-cf-beacon=\'{"token": "ad4bc0439a524824ac7ccf972f3a286b"}\'' $DESTDIR/index.html
+sed -i '/<\/head>/i  ></script>' $DESTDIR/index.html
+sed -i '/<\/head>/i<!-- End Cloudflare -->' $DESTDIR/index.html
 
 
 cd togetherness
