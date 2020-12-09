@@ -51,7 +51,7 @@ cat <<EOF > /tmp/analytics.txt
 EOF
 
 # Insert the analytics code into the index.html file right before </head>
-ied  -e '/<\/head>/r /tmp/analytics.txt' -e 'x;$G' $DESTDIR/index.html
+sed -i -e '/<\/head>/r /tmp/analytics.txt' -e 'x;$G' $DESTDIR/index.html
 
 
 cd togetherness
